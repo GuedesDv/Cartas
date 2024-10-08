@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+    
+
+        <div class="card-container">
+        
+        
+            <div class="card-pos-a">
+        
+            </div>
+            <div class="card-pos-b">
+                
+            </div>
+            <div class="card-pos-c">
+                
+            </div>
+            <div class="card-pos-d">
+                
+            </div>
+        </div>
+        </main>
+    <script>
+        const CardObjectDef = [
+    {id: 1, imagePath: '/front.png'},
+    {id: 2, imagePath: '/front.png'},
+    {id: 3, imagePath: '/front.png'},
+    {id: 4, imagePath: '/front.png'}
+];
+
+const cardBackImgPath = '/back.png';
+
+const cardContainerElem = document.querySelector('.card-container');
+
+function renderCard(cardItem) {
+    // Cria um novo elemento para o cartão
+    const cardElem = document.createElement('div');
+    cardElem.className = 'card';
+
+    // Cria a parte da frente do cartão
+    const frontImg = document.createElement('img');
+    frontImg.src = cardItem.imagePath;
+    cardElem.appendChild(frontImg);
+
+    // Cria a parte de trás do cartão
+    const backImg = document.createElement('img');
+    backImg.src = cardBackImgPath;
+    backImg.className = 'card-back';
+    cardElem.appendChild(backImg);
+
+    // Adiciona o cartão ao contêiner
+    cardContainerElem.appendChild(cardElem);
+}
+
+function createCards() {
+    CardObjectDef.forEach(cardItem => {
+        renderCard(cardItem);
+    });
+}
+
+// Chama a função para criar os cartões
+createCards();
+    </script>
+</body>
+</html>
